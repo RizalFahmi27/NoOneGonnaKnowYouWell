@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/frag_forget_pass_secure_account"
+        android:textColor="@color/colorBlueLight"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/frag_forget_pass_ask_phone_number"/>
+
+    <TextView
+        android:id="@+id/text_fragment_login_forget_pass_number_your_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="@string/frag_forget_pass_your_phone_number_is"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="+62"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/edit_fragment_login_forget_pass_number_input_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:maxLines="1"
+            android:inputType="number"
+            android:maxLength="11"
+            android:hint="@string/frag_forget_pass_number_phone"/>
+    </LinearLayout>
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:rv_rippleDuration="400"
+        app:rv_color="@color/colorBlack"
+        app:rv_centered="false">
+
+        <TextView
+            android:id="@+id/text_fragment_login_forget_pass_number_reset_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/frag_forget_pass_reset_my_password"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@color/colorGreenLight"/>
+    </com.andexert.library.RippleView>
+</LinearLayout>
