@@ -36,6 +36,12 @@
     <string name="login_password">Password</string>
     <string name="login_login">Log in</string>
 
+    <!-- First Act -->
+    <string name="first_act_string_1"><![CDATA[Berbagi pengetahuan<br/>dengan para petani lainnya]]></string>
+    <string name="first_act_string_2"><![CDATA[Diagnosa penyakit tanaman<br/>dengan mudah]]></string>
+    <string name="first_act_string_3"><![CDATA[Mengelola tanah pertanian<br/>menjadi menyenangkan]]></string>
+    <string name="first_act_string_4"><![CDATA[Update semua harga komoditas<br/>di pasaran saat ini]]></string>
+
     <!-- Fragment Forget Pass -->
     <string name="frag_forget_pass_ask_forget">Lupa Password ?</string>
     <string name="frag_forget_pass_gonna_sent_to_email">Silahkan ikuti langkah dibawah, password reset akan kami kirim via email</string>

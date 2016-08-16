@@ -1,6 +1,8 @@
 package id.developer.tanitionary;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,6 +119,36 @@ class FragmentDummy extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((ImageView)view.findViewById(R.id.image_fragment_first_viewpager)).setImageResource(getResources().getIdentifier("dummy_" + id, "drawable", getContext().getPackageName()));
+//        ((ImageView)view.findViewById(R.id.image_fragment_first_viewpager)).setImageResource(getResources().getIdentifier("dummy_" + id, "drawable", getContext().getPackageName()));
+        Drawable drawable = null;
+        String desc = "";
+
+        Typeface type = Typeface.createFromAsset(getResources().getAssets(),"fonts/segoeui.ttf");
+
+        switch (id){
+            case 1:
+                drawable = getResources().getDrawable(R.drawable.act_first_view_1);
+                desc = getString(R.string.first_act_string_1);
+                break;
+
+            case 2:
+                drawable = getResources().getDrawable(R.drawable.act_first_view_2);
+                desc = getString(R.string.first_act_string_2);
+                break;
+
+            case 3:
+                drawable = getResources().getDrawable(R.drawable.act_first_view_3);
+                desc = getString(R.string.first_act_string_3);
+                break;
+
+            case 4:
+                drawable = getResources().getDrawable(R.drawable.act_first_view_4);
+                desc = getString(R.string.first_act_string_4);
+                break;
+        }
+
+        ((ImageView)view.findViewById(R.id.image_fragment_first_viewpager)).setImageDrawable(drawable);
+        ((TextView)view.findViewById(R.id.text_fragment_first_viewpager)).setText(Html.fromHtml(desc));
+        ((TextView)view.findViewById(R.id.text_fragment_first_viewpager)).setTypeface(type);
     }
 }
