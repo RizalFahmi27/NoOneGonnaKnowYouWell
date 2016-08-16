@@ -20,7 +20,7 @@ import id.developer.tanitionary.R;
 /**
  * Created by Naufal on 8/13/2016.
  */
-public class FragmentAccount extends Fragment {
+public class FragmentOthers extends Fragment {
 
     @Nullable
     @Override
@@ -39,9 +39,9 @@ public class FragmentAccount extends Fragment {
     private List<ObjectAccount> getData(){
         List<ObjectAccount> list = new ArrayList<>();
 
-        list.add(new ObjectAccount(R.mipmap.ic_launcher, "Akun"));
-        list.add(new ObjectAccount(R.mipmap.ic_launcher, "Keamanan"));
-        list.add(new ObjectAccount(R.mipmap.ic_launcher, "Pengaturan"));
+        list.add(new ObjectAccount(R.mipmap.ic_account, getString(R.string.frag_others_menu_account)));
+        list.add(new ObjectAccount(R.mipmap.ic_security, getString(R.string.frag_others_menu_security)));
+        list.add(new ObjectAccount(R.mipmap.ic_setting, getString(R.string.frag_others_menu_setting)));
 
         return list;
     }

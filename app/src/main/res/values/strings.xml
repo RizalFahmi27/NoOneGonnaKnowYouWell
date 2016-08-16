@@ -23,6 +23,11 @@
     <string name="title_ask_farmer">Tanya Tani</string>
     <!--<string name="action_write">Settings</string>-->
 
+    <!-- Fragment Others -->
+    <string name="frag_others_menu_account">Akun</string>
+    <string name="frag_others_menu_security">Keamanan</string>
+    <string name="frag_others_menu_setting">Pengaturan</string>
+
     <!-- Login Act -->
     <string name="login_greeting_welcome">Selamat Datang.!</string>
     <string name="login_greeting_another">Senang bertemu anda.</string>

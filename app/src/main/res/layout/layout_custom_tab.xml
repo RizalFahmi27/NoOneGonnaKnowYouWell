@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center_horizontal"
-        android:textColor="@color/colorTabsLabel"
+        android:textColor="@drawable/text_color_tab"
         android:text="test"
         android:textSize="@dimen/tab_label"
         android:textStyle="bold" />

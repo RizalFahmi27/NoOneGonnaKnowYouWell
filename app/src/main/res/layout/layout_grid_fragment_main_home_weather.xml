@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/cloudy"/>
+            android:src="@mipmap/ic_weather_wind"/>
 
         <TextView
             android:id="@+id/text_layout_grid_home_weahter_temperature"

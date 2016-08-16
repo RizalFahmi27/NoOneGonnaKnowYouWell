@@ -1,25 +1,20 @@
 package id.developer.tanitionary;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import id.developer.tanitionary.main.FragmentAccount;
+import id.developer.tanitionary.main.FragmentOthers;
 import id.developer.tanitionary.main.FragmentForum;
 import id.developer.tanitionary.main.FragmentHome;
 
@@ -59,25 +54,59 @@ public class ActivityMain extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        mViewPager.addOnPageChangeListener(
+                new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                        initTabsIconColor(position);
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                }
+        );
+
         initTabsIcon();
     }
 
     private void initTabsIcon(){
         LinearLayout tabOne = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.layout_custom_tab, null);
         ((TextView)tabOne.findViewById(R.id.tabs_text)).setText(getResources().getString(R.string.tab_home));
-        ((ImageView)tabOne.findViewById(R.id.tabs_image)).setImageResource(R.mipmap.ic_launcher);
+        ((ImageView)tabOne.findViewById(R.id.tabs_image)).setImageResource(R.drawable.image_tab_home);
         tabLayout.getTabAt(0).setCustomView(tabOne);
-
 
         LinearLayout tabTwo = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.layout_custom_tab, null);
         ((TextView)tabTwo.findViewById(R.id.tabs_text)).setText(getResources().getString(R.string.tab_forum));
-        ((ImageView)tabTwo.findViewById(R.id.tabs_image)).setImageResource(R.mipmap.ic_launcher);
+        ((ImageView)tabTwo.findViewById(R.id.tabs_image)).setImageResource(R.drawable.image_tab_forum);
         tabLayout.getTabAt(1).setCustomView(tabTwo);
 
         LinearLayout tabThree = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.layout_custom_tab, null);
         ((TextView)tabThree.findViewById(R.id.tabs_text)).setText(getResources().getString(R.string.tab_other));
-        ((ImageView)tabThree.findViewById(R.id.tabs_image)).setImageResource(R.mipmap.ic_menu_gray);
+        ((ImageView)tabThree.findViewById(R.id.tabs_image)).setImageResource(R.drawable.image_tab_other);
         tabLayout.getTabAt(2).setCustomView(tabThree);
+
+        tabLayout.getTabAt(0).getCustomView().setSelected(true);
+    }
+
+    private void initTabsIconColor(int except){
+
+//        LinearLayout tabed = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.layout_custom_tab, null);
+//
+//        for (int i = 0; i < 3; i++) {
+//            if(i == except)
+//                ((TextView)tabLayout.getTabAt(i).getCustomView().findViewById(R.id.tabs_text)).setTextColor(Color.parseColor("#19991c"));
+//            else
+//                ((TextView)tabLayout.getTabAt(i).getCustomView().findViewById(R.id.tabs_text)).setTextColor(Color.parseColor("#828282"));
+//        }
+//
+//        Toast.makeText(ActivityMain.this, ""+getResources().getColor(R.color.colorPrimary), Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -99,7 +128,7 @@ public class ActivityMain extends AppCompatActivity {
             }else if(position == 1){
                 return new FragmentForum();
             }else{
-                return new FragmentAccount();
+                return new FragmentOthers();
             }
         }
 
