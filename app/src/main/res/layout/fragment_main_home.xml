@@ -82,9 +82,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:rv_centered="true"
-            app:rv_color="#FF000000">
+            app:rv_color="#FF000000"
+            app:rv_rippleDuration="200">
 
             <LinearLayout
+                android:id="@+id/linear_fragment_main_home_diagnose"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -110,9 +112,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:rv_centered="true"
-            app:rv_color="#FF000000">
+            app:rv_color="#FF000000"
+            app:rv_rippleDuration="200">
 
             <LinearLayout
+                android:id="@+id/linear_fragment_main_home_dictionary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -145,9 +149,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:rv_centered="true"
-            app:rv_color="#FF000000">
+            app:rv_color="#FF000000"
+            app:rv_rippleDuration="200">
 
             <LinearLayout
+                android:id="@+id/linear_fragment_main_home_manage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -173,9 +179,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:rv_centered="true"
-            app:rv_color="#FF000000">
+            app:rv_color="#FF000000"
+            app:rv_rippleDuration="200">
 
             <LinearLayout
+                android:id="@+id/linear_fragment_main_home_market"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

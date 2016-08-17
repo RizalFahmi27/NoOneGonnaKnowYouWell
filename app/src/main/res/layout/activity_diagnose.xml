@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="id.developer.tanitionary.ActivityDiagnose">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/text_act_diagnose_illness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:text="Apakah tanaman anda?"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:gravity="right">
+
+                <com.andexert.library.RippleView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    app:rv_color="@color/colorBlack"
+                    app:rv_centered="true">
+
+                    <TextView
+                        android:id="@+id/text_act_diagnose_yes"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:background="@drawable/border_rounded_white"
+                        android:text="Ya"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:textColor="@color/colorPrimary"/>
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rv_color="@color/colorBlack"
+                    app:rv_centered="true">
+
+                    <TextView
+                        android:id="@+id/text_act_diagnose_no"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="Tidak"
+                        android:textColor="@color/colorRedLight"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textSize="17sp"
+                        android:background="@drawable/border_rounded_white"/>
+                </com.andexert.library.RippleView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/linear_act_diagnose_as_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:divider="?android:dividerHorizontal"
+                    android:animateLayoutChanges="true">
+
+                </LinearLayout>
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/text_act_diagnose_no_symtomp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No symtomp"
+                android:textColor="@color/colorGray"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

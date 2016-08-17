@@ -10,6 +10,7 @@
     <color name="colorWhite">#FFF</color>
     <color name="colorGrayLight">#e6e6e6</color>
     <color name="colorGrayAbout">#808083</color>
+    <color name="colorRedLight">#e95252</color>
 
     <color name="colorTabs">#dbdbdb</color>
     <color name="colorTabsLabel">#828282</color>

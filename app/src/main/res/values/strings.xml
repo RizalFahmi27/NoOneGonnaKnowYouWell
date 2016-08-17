@@ -53,4 +53,8 @@
     <string name="frag_forget_pass_number_phone">Nomor Handphone</string>
     <string name="frag_forget_pass_reset_my_password">Reset Password</string>
     <string name="frag_forget_pass_account_reseted">Password anda telah di reset, silahkan cek email !</string>
+
+    <!-- Act Diagnose -->
+    <string name="title_activity_activity_diagnose">Diagnosa</string>
+    <string name="act_diagnose_are_your_plant">Apakah tanaman anda</string>
 </resources>

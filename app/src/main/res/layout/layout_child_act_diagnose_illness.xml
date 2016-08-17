@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:showDividers="middle"
+    android:divider="?android:dividerVertical"
+    android:dividerPadding="8dp">
+
+    <TextView
+        android:id="@+id/text_child_act_diagnose_illness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:textSize="17sp"
+        android:textColor="@color/colorRedLight"/>
+</LinearLayout>
