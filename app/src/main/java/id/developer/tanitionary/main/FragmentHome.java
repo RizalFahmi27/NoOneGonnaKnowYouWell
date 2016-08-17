@@ -55,7 +55,7 @@ public class FragmentHome extends Fragment{
                                     @Override
                                     public void run() {
                                         try {
-                                            Thread.sleep(200);
+                                            Thread.sleep(500);
                                         }catch (Exception e){
 
                                         }finally {

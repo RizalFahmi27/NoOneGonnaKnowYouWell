@@ -30,7 +30,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:background="@color/colorPrimary"
             android:padding="20dp">
 
@@ -54,7 +54,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     app:rv_color="@color/colorBlack"
-                    app:rv_centered="true">
+                    app:rv_centered="true"
+                    app:rv_rippleDuration="200">
 
                     <TextView
                         android:id="@+id/text_act_diagnose_yes"
@@ -62,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:background="@drawable/border_rounded_white"
-                        android:text="Ya"
+                        android:text="@string/dialog_yes_button"
                         android:textAlignment="center"
                         android:textStyle="bold"
                         android:textSize="17sp"
@@ -73,14 +74,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:rv_color="@color/colorBlack"
-                    app:rv_centered="true">
+                    app:rv_centered="true"
+                    app:rv_rippleDuration="200">
 
                     <TextView
                         android:id="@+id/text_act_diagnose_no"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
-                        android:text="Tidak"
+                        android:text="@string/dialog_no_button"
                         android:textColor="@color/colorRedLight"
                         android:textStyle="bold"
                         android:textAlignment="center"
@@ -93,12 +95,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="0.8"
+            android:animateLayoutChanges="true">
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:id="@+id/linear_act_diagnose_as_parent"
@@ -117,9 +119,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="No symtomp"
-                android:textColor="@color/colorGray"
-                android:textSize="20sp"/>
+                android:text="@string/act_diagnose_no_symtomp"
+                android:textSize="23sp"/>
         </RelativeLayout>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

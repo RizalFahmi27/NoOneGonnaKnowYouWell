@@ -16,11 +16,6 @@
             android:name=".ActivityFirst"
             android:label="@string/title_activity_activity_first"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ActivityLogin"
@@ -28,6 +23,26 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ActivityDiagnose"
+            android:label="@string/title_activity_activity_diagnose"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivityMarket"
+            android:label="@string/title_activity_activity_market"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivitySplashScreen"
+            android:label="@string/title_activity_activity_splash_screen"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityOtherAccount"
+            android:label="@string/title_activity_activity_other_account"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

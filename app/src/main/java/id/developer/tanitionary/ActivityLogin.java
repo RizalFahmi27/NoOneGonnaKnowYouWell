@@ -17,11 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ActivityLogin extends AppCompatActivity {
 
     TextView textLogin, textForgetPass;
-    EditText editUsername, editPass;
+    EditText editEmail, editPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,24 @@ public class ActivityLogin extends AppCompatActivity {
         textForgetPass = (TextView)findViewById(R.id.text_act_login_forget_pass);
         textLogin = (TextView)findViewById(R.id.text_act_login_login);
         editPass = (EditText)findViewById(R.id.edit_act_login_pass);
-        editUsername = (EditText)findViewById(R.id.edit_act_login_username);
+        editEmail = (EditText)findViewById(R.id.edit_act_login_email);
 
         textLogin.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String name = editEmail.getText().toString();
+                        String pass = editPass.getText().toString();
+                        String location = "Surabaya";
+
+                        if(name == null || pass == null || name.equalsIgnoreCase("") || pass.equalsIgnoreCase("")){
+                            Toast.makeText(ActivityLogin.this, "Ups, anda melupakan beberapa data .", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        SessionLoginManager sessionLoginManager = new SessionLoginManager(getApplicationContext());
+                        sessionLoginManager.createLoginSession(name, name, location);
+
                         new Thread(
                                 new Runnable() {
                                     @Override
@@ -145,7 +158,7 @@ class FragmentForgetPassNumber extends Fragment{
                         new AlertDialog.Builder(getContext())
                                 .setTitle(getResources().getString(R.string.app_name))
                                 .setMessage(getResources().getString(R.string.frag_forget_pass_account_reseted))
-                                .setPositiveButton(getResources().getString(R.string.dialog_close),
+                                .setPositiveButton(getResources().getString(R.string.dialog_close_button),
                                         new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {

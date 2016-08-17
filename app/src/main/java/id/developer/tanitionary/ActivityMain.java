@@ -54,25 +54,6 @@ public class ActivityMain extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        mViewPager.addOnPageChangeListener(
-                new ViewPager.OnPageChangeListener() {
-                    @Override
-                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                        initTabsIconColor(position);
-                    }
-
-                    @Override
-                    public void onPageSelected(int position) {
-
-                    }
-
-                    @Override
-                    public void onPageScrollStateChanged(int state) {
-
-                    }
-                }
-        );
-
         initTabsIcon();
     }
 
@@ -93,20 +74,6 @@ public class ActivityMain extends AppCompatActivity {
         tabLayout.getTabAt(2).setCustomView(tabThree);
 
         tabLayout.getTabAt(0).getCustomView().setSelected(true);
-    }
-
-    private void initTabsIconColor(int except){
-
-//        LinearLayout tabed = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.layout_custom_tab, null);
-//
-//        for (int i = 0; i < 3; i++) {
-//            if(i == except)
-//                ((TextView)tabLayout.getTabAt(i).getCustomView().findViewById(R.id.tabs_text)).setTextColor(Color.parseColor("#19991c"));
-//            else
-//                ((TextView)tabLayout.getTabAt(i).getCustomView().findViewById(R.id.tabs_text)).setTextColor(Color.parseColor("#828282"));
-//        }
-//
-//        Toast.makeText(ActivityMain.this, ""+getResources().getColor(R.color.colorPrimary), Toast.LENGTH_SHORT).show();
     }
 
     /**

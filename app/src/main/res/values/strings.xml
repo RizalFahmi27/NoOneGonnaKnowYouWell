@@ -3,7 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_activity_first"></string>
     <string name="title_activity_activity_login">Log In</string>
-    <string name="dialog_close">Tutup</string>
+    <string name="dialog_close_button">Tutup</string>
+    <string name="dialog_yes_button">Ya</string>
+    <string name="dialog_no_button">Tidak</string>
 
     <!-- API KEY -->
     <string name="api_key_weather">11eb6f305eb3cd10b1dd264976bf5ede</string>
@@ -27,12 +29,14 @@
     <string name="frag_others_menu_account">Akun</string>
     <string name="frag_others_menu_security">Keamanan</string>
     <string name="frag_others_menu_setting">Pengaturan</string>
+    <string name="frag_others_menu_help">Bantuan</string>
+    <string name="frag_others_menu_about">Tentang Kami</string>
 
     <!-- Login Act -->
     <string name="login_greeting_welcome">Selamat Datang.!</string>
     <string name="login_greeting_another">Senang bertemu anda.</string>
     <string name="login_forget_pass">Lupa password ?</string>
-    <string name="login_username">Username</string>
+    <string name="login_email">Email</string>
     <string name="login_password">Password</string>
     <string name="login_login">Log in</string>
 
@@ -57,4 +61,22 @@
     <!-- Act Diagnose -->
     <string name="title_activity_activity_diagnose">Diagnosa</string>
     <string name="act_diagnose_are_your_plant">Apakah tanaman anda</string>
+    <string name="act_diagnose_no_symtomp">Tidak ada gejala</string>
+    <string name="act_diagnose_alert_message">Penyakit pada tanaman anda belum terdeteksi, apakah anda yakin ingin kembali ?</string>
+    <string name="title_activity_activity_market">ActivityMarket</string>
+
+    <!-- Act Splash Screen -->
+    <string name="title_activity_activity_splash_screen">ActivitySplashScreen</string>
+
+    <!-- Act Other Account -->
+    <string name="title_activity_activity_other_account">Akun</string>
+    <string name="act_other_account_head_personal_data">Data Personal</string>
+    <string name="act_other_account_head_account">Data Akun</string>
+    <string name="act_other_account_item_avatar">Avatar</string>
+    <string name="act_other_account_item_name">Nama</string>
+    <string name="act_other_account_item_location">Domisili</string>
+    <string name="act_other_account_item_phone_number">Nomor Telepon</string>
+    <string name="act_other_account_item_email">Email</string>
+    <string name="act_other_account_item_log_out">Log out</string>
+    <string name="act_other_account_sure_to_log_out">Apakah anda yakin ingin log out ?</string>
 </resources>

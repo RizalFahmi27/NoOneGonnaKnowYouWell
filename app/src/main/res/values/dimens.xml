@@ -10,4 +10,11 @@
     <dimen name="recycler_padding_normal_port">10dp</dimen>
     <dimen name="recycler_padding_large_pot">40dp</dimen>
     <dimen name="tabs_bot_height">50dp</dimen>
+
+    <!-- Act Other Account -->
+    <dimen name="act_other_account_pad_head_top_bot">20dp</dimen>
+    <dimen name="act_other_account_pad_item_top_bot">18dp</dimen>
+    <dimen name="act_other_account_pad_left_right">20dp</dimen>
+    <dimen name="act_other_account_text_size_head">12sp</dimen>
+    <dimen name="act_other_account_text_size_item">15sp</dimen>
 </resources>

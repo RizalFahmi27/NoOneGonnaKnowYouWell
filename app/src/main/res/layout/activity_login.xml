@@ -49,13 +49,13 @@
                 android:text="@string/login_greeting_another"/>
 
             <EditText
-                android:id="@+id/edit_act_login_username"
+                android:id="@+id/edit_act_login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:hint="@string/login_username"/>
+                android:hint="@string/login_email"/>
 
             <EditText
                 android:id="@+id/edit_act_login_pass"

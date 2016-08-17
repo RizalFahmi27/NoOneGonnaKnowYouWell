@@ -1,8 +1,11 @@
 package id.developer.tanitionary;
 
+import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -18,11 +21,12 @@ import java.util.Random;
 
 public class ActivityDiagnose extends AppCompatActivity {
 
-    TextView textIlness, textYes, textNo;
+    TextView textIlness, textYes, textNo, textNoSymtomp;
     ViewGroup layoutParent;
 
     int randNumb = 0;
     String illness = "";
+    boolean illnessDetected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +45,17 @@ public class ActivityDiagnose extends AppCompatActivity {
         textIlness = (TextView)findViewById(R.id.text_act_diagnose_illness);
         textYes = (TextView)findViewById(R.id.text_act_diagnose_yes);
         textNo = (TextView)findViewById(R.id.text_act_diagnose_no);
+        textNoSymtomp = (TextView)findViewById(R.id.text_act_diagnose_no_symtomp);
         layoutParent = (ViewGroup)findViewById(R.id.linear_act_diagnose_as_parent);
+
+        textNoSymtomp.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/segoeui.ttf"));
 
         textYes.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         addNewChild();
+                        textNoSymtomp.setVisibility(View.GONE);
                     }
                 }
         );
@@ -97,5 +105,26 @@ public class ActivityDiagnose extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(!illnessDetected){
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.app_name))
+                    .setMessage(getString(R.string.act_diagnose_alert_message))
+                    .setPositiveButton(getString(R.string.dialog_yes_button),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    illnessDetected = true;
+                                    onBackPressed();
+                                }
+                            })
+                    .setNegativeButton(getString(R.string.dialog_no_button),null)
+                    .show();
+        }else
+            super.onBackPressed();
     }
 }
