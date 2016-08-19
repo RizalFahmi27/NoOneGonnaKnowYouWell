@@ -152,5 +152,5 @@ class FragmentDummy extends Fragment{
         ((TextView)view.findViewById(R.id.text_fragment_first_viewpager)).setTypeface(type);
     }
 
-    // Testc 
+    // Testc
 }
