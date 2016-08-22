@@ -39,6 +39,7 @@ public class ActivityFirst extends AppCompatActivity {
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
+
         mViewPager.setAdapter(mAdapter);
 
         CirclePageIndicator mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
@@ -51,14 +52,23 @@ public class ActivityFirst extends AppCompatActivity {
         textRegister = (TextView)findViewById(R.id.text_act_first_register);
         textLogin = (TextView)findViewById(R.id.text_act_first_login);
 
+//        textLogin.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity(new Intent(ActivityFirst.this, ActivityLogin.class));
+//                    }
+//                }
+//        );
         textLogin.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(ActivityFirst.this, ActivityLogin.class));
+                        startActivity(new Intent(ActivityFirst.this, ActivityWeather.class));
                     }
                 }
         );
+
     }
 
     class SectionsPagerAdapter extends FragmentPagerAdapter {

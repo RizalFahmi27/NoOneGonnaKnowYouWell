@@ -6,10 +6,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="10"
         android:orientation="horizontal"
+        android:background="#1b9a1e"
         android:weightSum="10">
         <LinearLayout
+            android:id="@+id/layoutday1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -20,6 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sunday"
+                android:textColor="#fff"
                 android:layout_gravity="center_horizontal"
                 android:textSize="15sp"
                 android:maxLines="1"
@@ -34,6 +37,7 @@
                 android:scaleType="fitXY"
                 android:layout_gravity="center"/>
             <TextView
+                android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -43,6 +47,7 @@
                 android:id="@+id/weatherFragment1"
                 android:layout_gravity="center_horizontal"/>
             <TextView
+                android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,8 +64,10 @@
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="7dp"
+            android:id="@+id/layoutday2"
             android:weightSum="10">
             <TextView
+                android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sunday"
@@ -81,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#fff"
                 android:maxLines="1"
                 android:text="Cloudy"
                 android:textSize="15sp"
@@ -90,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#fff"
                 android:maxLines="1"
                 android:id="@+id/temperatureFragment2"
                 android:text="28"
@@ -103,6 +112,7 @@
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="7dp"
+            android:id="@+id/layoutday3"
             android:weightSum="10">
             <TextView
                 android:layout_width="wrap_content"
@@ -111,6 +121,7 @@
                 android:maxLines="1"
                 android:layout_gravity="center_horizontal"
                 android:textSize="15sp"
+                android:textColor="#fff"
                 android:layout_weight="1"
                 android:id="@+id/day3"/>
             <ImageView
@@ -128,6 +139,7 @@
                 android:maxLines="1"
                 android:text="Cloudy"
                 android:textSize="15sp"
+                android:textColor="#fff"
                 android:id="@+id/weatherFragment3"
                 android:layout_gravity="center_horizontal"/>
             <TextView
@@ -135,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="1"
+                android:textColor="#fff"
                 android:id="@+id/temperatureFragment3"
                 android:text="28"
                 android:layout_gravity="center"
@@ -147,12 +160,14 @@
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="7dp"
-            android:weightSum="10">
+            android:weightSum="10"
+            android:id="@+id/layoutday4">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sunday"
                 android:maxLines="1"
+                android:textColor="#fff"
                 android:layout_gravity="center_horizontal"
                 android:textSize="15sp"
                 android:layout_weight="1"
@@ -171,6 +186,7 @@
                 android:layout_weight="1"
                 android:text="Cloudy"
                 android:maxLines="1"
+                android:textColor="#fff"
                 android:textSize="15sp"
                 android:id="@+id/weatherFragment4"
                 android:layout_gravity="center_horizontal"/>
@@ -181,6 +197,7 @@
                 android:maxLines="1"
                 android:id="@+id/temperatureFragment4"
                 android:text="28"
+                android:textColor="#fff"
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textSize="18sp"/>
@@ -191,11 +208,13 @@
             android:layout_weight="2"
             android:orientation="vertical"
             android:padding="7dp"
-            android:weightSum="10">
+            android:weightSum="10"
+            android:id="@+id/layoutday5">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sunday"
+                android:textColor="#fff"
                 android:layout_gravity="center_horizontal"
                 android:textSize="15sp"
                 android:layout_weight="1"
@@ -215,6 +234,7 @@
                 android:layout_weight="1"
                 android:text="Cloudy"
                 android:maxLines="1"
+                android:textColor="#fff"
                 android:textSize="15sp"
                 android:id="@+id/weatherFragment5"
                 android:layout_gravity="center_horizontal"/>
@@ -224,6 +244,7 @@
                 android:layout_weight="1"
                 android:id="@+id/temperatureFragment5"
                 android:text="28"
+                android:textColor="#fff"
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:maxLines="1"
