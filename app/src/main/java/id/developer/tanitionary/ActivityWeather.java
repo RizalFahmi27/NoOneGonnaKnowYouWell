@@ -251,11 +251,14 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
             if(weather.iconData != null && weather.iconData.length>0){
                 Bitmap bmp = BitmapFactory.decodeByteArray(weather.iconData,0,weather.iconData.length);
                 weatherIcon.setImageBitmap(bmp);
+                Log.d("URL","This message will appear if icon is loaded successfully");
             }
 
             cityName.setText(weather.location.getCity()+","+weather.location.getCountry());
             currentWeatherText.setText(weather.currentCondition.getCondition() + "("+ weather.currentCondition.getDescr()+")");
-            temperatureText.setText(""+ Math.round((weather.temperature.getTemp()))+ (char) 0x00B0+")");
+            Log.d("URL","Temp get : "+weather.temperature.getTemp());
+            temperatureText.setText(""+ Math.round((weather.temperature.getTemp()))+ (char) 0x00B0);
+
         }
     }
 }
