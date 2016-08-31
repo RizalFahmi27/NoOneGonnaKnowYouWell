@@ -1,6 +1,8 @@
 package id.developer.tanitionary;
 
 import android.Manifest;
+import android.app.Service;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +15,7 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -37,6 +40,16 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import id.developer.tanitionary.R;
 import id.developer.tanitionary.weather_model.Weather;
 
@@ -46,11 +59,14 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
     FragmentForecast fg;
     LocationListener locationListener;
     LocationManager locationManager;
-    long startTime, currentTime;
+    long currentTime;
     final Handler timeHandler = new Handler();
     private boolean isReadyToUpdate=false;
     TextView lastUpdateText, temperatureText, currentWeatherText, cityName, dateText;
     ImageView updateIcon, weatherIcon;
+    String[] days = new String[]{"Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +93,18 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
     }
 
     @Override
-    public void onMessageFromFragmentToActivity(String sender, String strValue) {
+    public void onMessageFromFragmentToActivity(String sender, Bundle strValue) {
+
+        String desc = strValue.getString("desc");
+        String condition = strValue.getString("condition");
+        String temp = strValue.getString("temp");
+        int index = strValue.getInt("date");
+
+        currentWeatherText.setText(condition + "\n(" + desc + ")");
+        Log.d("URL", "Temp get : " + temp);
+        temperatureText.setText("" + temp + (char) 0x00B0);
+        String date = getDate(index);
+        dateText.setText(date);
 
     }
 
@@ -89,6 +116,25 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
                     configureLocation();
                 return;
         }
+    }
+
+    private void updateWeatherInfo(Weather weather){
+        if (weather.iconData[0] != null && weather.iconData[0].length > 0) {
+            Bitmap bmp = BitmapFactory.decodeByteArray(weather.iconData[0], 0, weather.iconData.length);
+            weatherIcon.setImageBitmap(bmp);
+            Log.d("URL", "This message will appear if icon is loaded successfully");
+        }
+
+        cityName.setText(weather.location.getCity() + "," + weather.location.getCountry());
+        currentWeatherText.setText(weather.currentCondition[0].getCondition() + "\n(" + weather.currentCondition[0].getDescr() + ")");
+        Log.d("URL", "Temp get : " + weather.temperature[0].getTemp());
+        temperatureText.setText("" + (weather.temperature[0].getTemp()) + (char) 0x00B0);
+
+        String dateNow = getDate(0);
+        dateText.setText(dateNow);
+
+        //Send message to Fragment
+        fg.onMessageFromActivityToFragment(weather);
     }
 
     private void update(){
@@ -226,6 +272,21 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
 
     }
 
+    private String getDate(int index){
+        Calendar calendar = Calendar.getInstance();
+
+        DateFormat dateFormatter  = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormatter.setLenient(false);
+        calendar.add(Calendar.DAY_OF_YEAR,index);
+        Date today = calendar.getTime();
+        String s = dateFormatter.format(today);
+        String day = days[calendar.get(Calendar.DAY_OF_WEEK)-1];
+
+
+        String finalDateString = (day+", "+s);
+        return finalDateString;
+    }
+
     private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
         @Override
@@ -236,7 +297,10 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
 
                 weather = JSONWeatherParser.getWeather(data);
 
-                weather.iconData = (( new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
+                for(int i=0;i<5;i++) {
+                    weather.iconData[i] = ((new WeatherHttpClient()).getImage(weather.currentCondition[i].getIcon()));
+                    Log.d("Iconnnn","icon "+i+" : "+weather.iconData[i].length);
+                }
             }
             catch (JSONException e){
                 e.printStackTrace();
@@ -248,17 +312,25 @@ public class ActivityWeather extends AppCompatActivity implements WeatherCallbac
         protected void onPostExecute(Weather weather) {
             super.onPostExecute(weather);
 
-            if(weather.iconData != null && weather.iconData.length>0){
-                Bitmap bmp = BitmapFactory.decodeByteArray(weather.iconData,0,weather.iconData.length);
-                weatherIcon.setImageBitmap(bmp);
-                Log.d("URL","This message will appear if icon is loaded successfully");
+            try {
+                String dir = Environment.getExternalStorageDirectory().getAbsolutePath().toString() + "/TanitionaryData/WeatherData/";
+                File file = new File(dir);
+                if (!file.exists())
+                    file.mkdirs();
+                FileOutputStream fos = new FileOutputStream(new File(dir+".weather"), true);
+                ObjectOutputStream os = new ObjectOutputStream(fos);
+                os.writeObject(weather);
+                os.close();
             }
 
-            cityName.setText(weather.location.getCity()+","+weather.location.getCountry());
-            currentWeatherText.setText(weather.currentCondition.getCondition() + "("+ weather.currentCondition.getDescr()+")");
-            Log.d("URL","Temp get : "+weather.temperature.getTemp());
-            temperatureText.setText(""+ Math.round((weather.temperature.getTemp()))+ (char) 0x00B0);
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+            updateWeatherInfo(weather);
 
         }
+
+
     }
 }

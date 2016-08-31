@@ -39,7 +39,6 @@ public class ActivityFirst extends AppCompatActivity {
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-
         mViewPager.setAdapter(mAdapter);
 
         CirclePageIndicator mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
@@ -52,23 +51,43 @@ public class ActivityFirst extends AppCompatActivity {
         textRegister = (TextView)findViewById(R.id.text_act_first_register);
         textLogin = (TextView)findViewById(R.id.text_act_first_login);
 
-//        textLogin.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        startActivity(new Intent(ActivityFirst.this, ActivityLogin.class));
-//                    }
-//                }
-//        );
         textLogin.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(ActivityFirst.this, ActivityWeather.class));
+                        startActivity(new Intent(ActivityFirst.this, ActivityLogin.class));
                     }
                 }
         );
 
+//        textRegister.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        new Thread(
+//                                new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        try{
+//                                            Thread.sleep(500);
+//                                        }catch (Exception e){
+//
+//                                        }finally{
+//                                            startActivity(new Intent(ActivityFirst.this, ActivityRegister.class));
+//                                        }
+//                                    }
+//                                }
+//                        ).start();
+//                    }
+//                }
+//        );
+        textRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),ActivityKamus.class);
+                startActivity(intent);
+            }
+        });
     }
 
     class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -100,7 +119,7 @@ public class ActivityFirst extends AppCompatActivity {
     }
 }
 
-class FragmentDummy extends Fragment{
+class FragmentDummy extends Fragment {
 
     Integer id;
 
@@ -161,6 +180,4 @@ class FragmentDummy extends Fragment{
         ((TextView)view.findViewById(R.id.text_fragment_first_viewpager)).setText(Html.fromHtml(desc));
         ((TextView)view.findViewById(R.id.text_fragment_first_viewpager)).setTypeface(type);
     }
-
-    // Testc
 }
